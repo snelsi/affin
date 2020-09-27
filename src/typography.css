@@ -1,0 +1,151 @@
+@font-face {
+  src: url("/fonts/Montserrat-VF.woff2") format("woff2-variations");
+  font-family: "Montserrat";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+}
+@font-face {
+  src: url("/fonts/Montserrat-Italic-VF.woff2") format("woff2-variations");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 200 900;
+}
+
+* {
+  line-height: calc(2px + 2ex + 2px);
+}
+
+:root {
+  --sans-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  /* font-family: var(--sans-family); */
+  font-family: "Montserrat", var(--sans-family);
+
+  font-style: normal;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+
+  font-size: 16px;
+}
+
+.montserrat {
+  font-family: "Montserrat", var(--sans-family);
+}
+h1,
+*[data-font-size="Huge" i] {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  font-size: 60px;
+}
+h2,
+*[data-font-size="Large" i] {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  font-size: 48px;
+}
+h3,
+*[data-font-size="XL" i] {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  font-size: 32px;
+}
+h4,
+*[data-font-size="X" i] {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  font-size: 24px;
+}
+h5,
+*[data-font-size="L" i] {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  font-size: 20px;
+}
+h6,
+*[data-font-size="M" i] {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  font-size: 18px;
+}
+*[data-font-size="Focus" i] {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  font-size: 18px;
+}
+*[data-font-size="Main" i] {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  font-size: 16px;
+}
+*[data-font-size="Secondary" i] {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  font-size: 14px;
+}
+*[data-font-size="Additional" i] {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  font-size: 13px;
+}
+
+@media (max-width: 1020px) {
+  h1,
+  *[data-font-size="Huge" i] {
+    font-size: 32px;
+  }
+  h2,
+  *[data-font-size="Large" i] {
+    font-size: 28px;
+  }
+  h3,
+  *[data-font-size="XL" i] {
+    font-size: 24px;
+  }
+  h4,
+  *[data-font-size="X" i] {
+    font-size: 20px;
+  }
+  h5,
+  *[data-font-size="L" i] {
+    font-size: 19px;
+  }
+  h6,
+  *[data-font-size="M" i] {
+    font-size: 18px;
+  }
+  *[data-font-size="Focus" i] {
+    font-size: 16px;
+  }
+}
+
+*[data-font-weight="Light" i],
+*[data-font-weight="300"] {
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+}
+*[data-font-weight="Normal" i],
+*[data-font-weight="400"] {
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+}
+*[data-font-weight="Medium" i],
+*[data-font-weight="500"] {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+*[data-font-weight="Semibold" i],
+*[data-font-weight="600"] {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+}
+*[data-font-weight="Bold" i],
+*[data-font-weight="700"] {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+}
