@@ -44,6 +44,8 @@ const StyledForm = styled.form`
 
     & .search-icon {
       position: absolute;
+      border: none;
+      background: none;
       right: 0;
       top: 0;
       bottom: 0;
@@ -88,11 +90,17 @@ export const SearchInput: React.FC<SearchInputProps> = ({
           type="search"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              onSubmit(value.trim());
+            }
+          }}
           placeholder="Введите свой запрос сюда"
         />
-        <div className="search-icon">
+        <button className="search-icon">
           <FiSearch />
-        </div>
+        </button>
       </div>
     </StyledForm>
   );
