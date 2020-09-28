@@ -6,6 +6,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 const PageWrapper = styled.div`
   padding-top: 64px;
   padding-bottom: 64px;
+
+  & h1 {
+    margin-bottom: 20px;
+  }
 `;
 
 interface BookmarksProps {}
