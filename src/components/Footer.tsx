@@ -16,6 +16,11 @@ const StyledFooter = styled.footer`
     }
   }
 
+  & > .copyright {
+    & > span {
+      white-space: nowrap;
+    }
+  }
   & > .links {
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +45,9 @@ interface FooterProps {}
 
 export const Footer: React.FC<FooterProps> = React.memo(() => (
   <StyledFooter data-margins>
-    <div>Проект “Аффин” 2020 © Все права защищены</div>
+    <div className="copyright">
+      Проект “Аффин” 2020 © <span>Все права защищены</span>
+    </div>
     <div className="links">
       <Link to="/about">Про проект</Link>
       <a
