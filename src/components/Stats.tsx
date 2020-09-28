@@ -12,8 +12,6 @@ const Wrapper = styled.div`
     display: flex;
     width: fit-content;
     padding-bottom: 20px;
-    padding-left: 6.25vw;
-    padding-right: 6.25vw;
 
     & .column {
       & .column-title {
@@ -56,7 +54,7 @@ export interface StatsProps {
 
 export const Stats: React.FC<StatsProps> = ({ stats, ...props }) => (
   <Wrapper {...props}>
-    <ul>
+    <ul data-horizontal-scroll>
       {stats?.map(({ title, value }) => (
         <Column key={title} title={title} value={value} />
       ))}

@@ -26,3 +26,7 @@ code {
   margin-left: auto;
   margin-right: auto;
 }
+*[data-horizontal-scroll] {
+  padding-left: max(6.25vw, (100vw - 1440px) / 2);
+  padding-right: max(6.25vw, (100vw - 1440px) / 2);
+}
