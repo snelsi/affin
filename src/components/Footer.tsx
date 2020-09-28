@@ -18,6 +18,7 @@ const StyledFooter = styled.footer`
 
   & > .links {
     display: flex;
+    flex-wrap: wrap;
     & a {
       text-decoration: none;
       font-style: normal;
