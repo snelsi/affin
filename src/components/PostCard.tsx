@@ -4,12 +4,18 @@ import styled from "styled-components";
 import { Highlighted } from "components";
 
 const Card = styled.div`
-  background: #fffdfa;
+  background-color: var(--surface-1-color);
   border-radius: 8px;
-  padding: 24px;
+  border: 1px solid #eee;
+  padding: min(6.25vw, 24px);
   max-width: 800px;
   width: 100%;
   overflow: hidden;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.04);
+  }
 
   & > .post-link {
     font-family: var(--sans-family);
@@ -92,7 +98,7 @@ export const PostCard: React.FC<PostCardProps> = ({
         {searchWord ? (
           <Highlighted text={title} highlight={searchWord} />
         ) : (
-          title
+          <b>{title}</b>
         )}
       </div>
       <div className="post-authors">{authors}</div>

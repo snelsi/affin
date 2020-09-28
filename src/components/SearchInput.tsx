@@ -15,7 +15,7 @@ const StyledForm = styled.form`
       border: none;
       font-weight: 500;
       font-variation-settings: "wght" 500;
-      font-size: 24px;
+      font-size: clamp(18px, 6vw, 24px);
       line-height: 32px;
       padding: 12px;
       width: 100%;
@@ -23,7 +23,7 @@ const StyledForm = styled.form`
       padding-right: 0;
 
       &::placeholder {
-        color: #888;
+        color: #777;
       }
 
       /* clears the 'X' from Internet Explorer */
@@ -85,7 +85,6 @@ export const SearchInput: React.FC<SearchInputProps> = ({
         e.preventDefault();
         onSubmit(value.trim());
       }}
-      data-margins
       {...props}
     >
       <div>

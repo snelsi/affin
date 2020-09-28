@@ -7,13 +7,16 @@ import { useSearchParams } from "scripts/helpers";
 import { SearchInput, Stats, Tags, PostCard } from "components";
 
 const PageWrapper = styled.div`
-  padding-top: 64px;
-  padding-bottom: 64px;
-  width: 100%;
+  padding-top: 48px;
+  padding-bottom: 48px;
   overflow-x: hidden;
+  width: 100%;
 
-  & h1 {
-    margin-bottom: 20px;
+  & > div {
+    background-color: var(--surface-3-color);
+    & h1 {
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -95,15 +98,29 @@ export const Search: React.FC<SearchProps> = () => {
         </title>
       </Helmet>
       <PageWrapper>
-        <h1 data-margins>Поиск</h1>
-        <SearchInput initialValue={q} onSubmit={onSearchSubmit} />
-        <Stats stats={stats} />
-        <Tags tags={tags} />
-        <CardsCatalog data-margins>
-          <PostCard {...mockPostData} searchWord={q} />
-          <PostCard {...mockPostData} searchWord={q} />
-          <PostCard {...mockPostData} searchWord={q} />
-        </CardsCatalog>
+        <div>
+          <div data-block>
+            <div data-margins>
+              <h1>Поиск</h1>
+              <SearchInput initialValue={q} onSubmit={onSearchSubmit} />
+            </div>
+          </div>
+          <Stats stats={stats} />
+          <div data-block>
+            <div data-margins>
+              <Tags tags={tags} />
+            </div>
+          </div>
+          <div data-block>
+            <div data-margins>
+              <CardsCatalog>
+                <PostCard {...mockPostData} searchWord={q} />
+                <PostCard {...mockPostData} searchWord={q} />
+                <PostCard {...mockPostData} searchWord={q} />
+              </CardsCatalog>
+            </div>
+          </div>
+        </div>
       </PageWrapper>
     </>
   );

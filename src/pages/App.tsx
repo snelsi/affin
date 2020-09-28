@@ -6,13 +6,17 @@ import { useHistory } from "react-router-dom";
 import { SearchInput, Stats } from "components";
 
 const PageWrapper = styled.div`
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   width: 100%;
   overflow-x: hidden;
 
-  & h1 {
-    margin-bottom: 20px;
+  & > div {
+    background-color: var(--surface-3-color);
+
+    & h1 {
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -56,9 +60,15 @@ export const App = () => {
         <title>Аффин, универсальный поисковик по научным публикациям</title>
       </Helmet>
       <PageWrapper>
-        <h1 data-margins>Привет</h1>
-        <SearchInput onSubmit={onSearchSubmit} />
-        <Stats stats={stats} />
+        <div>
+          <div data-block>
+            <div data-margins>
+              <h1>Привет</h1>
+              <SearchInput onSubmit={onSearchSubmit} />
+            </div>
+          </div>
+          <Stats stats={stats} />
+        </div>
       </PageWrapper>
     </>
   );

@@ -4,6 +4,13 @@ import { Helmet } from "react-helmet";
 
 const PageWrapper = styled.div`
   padding-bottom: 64px;
+
+  & h1 {
+    margin-bottom: 20px;
+  }
+  & p {
+    max-width: 640px;
+  }
 `;
 
 const Banner = styled.div`

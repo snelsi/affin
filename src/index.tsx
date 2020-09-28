@@ -17,8 +17,9 @@ import { RightsHolders } from "pages/RightsHolders";
 import { Error404 } from "pages/Error404";
 
 import "modern-css-reset";
-import "./index.css";
-import "./typography.css";
+import "index.css";
+import "typography.css";
+import "themes/white.css";
 
 import "i18n";
 import * as serviceWorker from "./serviceWorker";

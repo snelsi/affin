@@ -2,36 +2,37 @@ import * as React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin: 48px 0 40px;
+  padding-bottom: 0;
 
-  max-width: 100%;
-  overflow-x: auto;
+  & > div {
+    max-width: 100%;
+    overflow-x: auto;
+    & > ul {
+      list-style: none;
+      display: flex;
+      width: fit-content;
+      padding-bottom: 24px;
 
-  & > ul {
-    list-style: none;
-    display: flex;
-    width: fit-content;
-    padding-bottom: 20px;
+      & .column {
+        & .column-title {
+          font-weight: 400;
+          font-variation-settings: "wght" 400;
+          font-size: 15px;
+          line-height: 20px;
+          color: #21272a;
+        }
+        & .column-value {
+          font-weight: 600;
+          font-variation-settings: "wght" 600;
+          font-size: 24px;
+          line-height: 32px;
+          color: #000000;
+          white-space: nowrap;
+        }
 
-    & .column {
-      & .column-title {
-        font-weight: 400;
-        font-variation-settings: "wght" 400;
-        font-size: 15px;
-        line-height: 20px;
-        color: #21272a;
-      }
-      & .column-value {
-        font-weight: 600;
-        font-variation-settings: "wght" 600;
-        font-size: 24px;
-        line-height: 32px;
-        color: #000000;
-        white-space: nowrap;
-      }
-
-      &:not(:last-child) {
-        margin-right: 40px;
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
       }
     }
   }
@@ -53,11 +54,13 @@ export interface StatsProps {
 }
 
 export const Stats: React.FC<StatsProps> = ({ stats, ...props }) => (
-  <Wrapper {...props}>
-    <ul data-horizontal-scroll>
-      {stats?.map(({ title, value }) => (
-        <Column key={title} title={title} value={value} />
-      ))}
-    </ul>
+  <Wrapper data-block {...props}>
+    <div>
+      <ul data-horizontal-scroll>
+        {stats?.map(({ title, value }) => (
+          <Column key={title} title={title} value={value} />
+        ))}
+      </ul>
+    </div>
   </Wrapper>
 );
