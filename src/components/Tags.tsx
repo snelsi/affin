@@ -19,11 +19,13 @@ const Wrapper = styled.div`
     font-size: 18px;
     line-height: 1.5;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
     & li {
       background-color: #fff;
       border-radius: 6px;
       color: #000000;
-      display: inline-block;
+      display: block;
       margin-right: 8px;
       margin-bottom: 8px;
       padding: 6px 12px;
