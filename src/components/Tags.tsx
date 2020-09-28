@@ -17,18 +17,19 @@ const Wrapper = styled.div`
     font-size: 18px;
     line-height: 1.5;
     list-style: none;
-    color: #000000;
     & li {
+      background-color: #fff;
+      border-radius: 6px;
+      color: #000000;
       display: inline-block;
-      margin-right: 6px;
-      & .comma {
-        display: inline-block;
-      }
-      &:last-child {
-        & .comma {
-          display: none;
-        }
-      }
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+
+      font-weight: 500;
+      font-variation-settings: "wght" 500;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 `;
@@ -42,10 +43,7 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => (
     <h4>Ключевые слова</h4>
     <ul>
       {tags.map((tag) => (
-        <li key={tag}>
-          {tag}
-          <span className="comma">, </span>
-        </li>
+        <li key={tag}>{tag}</li>
       ))}
     </ul>
   </Wrapper>
