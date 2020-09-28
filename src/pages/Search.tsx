@@ -9,6 +9,8 @@ import { SearchInput, Stats, Tags, PostCard } from "components";
 const PageWrapper = styled.div`
   padding-top: 64px;
   padding-bottom: 64px;
+  width: 100%;
+  overflow-x: hidden;
 `;
 
 const CardsCatalog = styled.div`
@@ -88,12 +90,12 @@ export const Search: React.FC<SearchProps> = () => {
           Поиск - Аффин, универсальный поисковик по научным публикациям
         </title>
       </Helmet>
-      <PageWrapper data-margins>
-        <h1>Поиск</h1>
+      <PageWrapper>
+        <h1 data-margins>Поиск</h1>
         <SearchInput initialValue={q} onSubmit={onSearchSubmit} />
         <Stats stats={stats} />
         <Tags tags={tags} />
-        <CardsCatalog>
+        <CardsCatalog data-margins>
           <PostCard {...mockPostData} searchWord={q} />
           <PostCard {...mockPostData} searchWord={q} />
           <PostCard {...mockPostData} searchWord={q} />

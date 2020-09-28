@@ -8,6 +8,8 @@ import { SearchInput, Stats } from "components";
 const PageWrapper = styled.div`
   padding-top: 64px;
   padding-bottom: 64px;
+  width: 100%;
+  overflow-x: hidden;
 `;
 
 const stats = [
@@ -49,8 +51,8 @@ export const App = () => {
       <Helmet>
         <title>Аффин, универсальный поисковик по научным публикациям</title>
       </Helmet>
-      <PageWrapper data-margins>
-        <h1>Привет</h1>
+      <PageWrapper>
+        <h1 data-margins>Привет</h1>
         <SearchInput onSubmit={onSearchSubmit} />
         <Stats stats={stats} />
       </PageWrapper>

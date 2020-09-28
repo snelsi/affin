@@ -2,7 +2,9 @@ import * as React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin: 32px 0;
+  margin-top: 32px;
+  margin-bottom: 32px;
+
   & h4 {
     font-style: normal;
     font-weight: 600;
@@ -38,8 +40,8 @@ interface TagsProps {
   tags: string[];
 }
 
-export const Tags: React.FC<TagsProps> = ({ tags }) => (
-  <Wrapper>
+export const Tags: React.FC<TagsProps> = ({ tags, ...props }) => (
+  <Wrapper data-margins {...props}>
     <h4>Ключевые слова</h4>
     <ul>
       {tags.map((tag) => (
