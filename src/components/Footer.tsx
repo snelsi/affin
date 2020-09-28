@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = React.memo(() => (
       Проект “Аффин” 2020 © <span>Все права защищены</span>
     </div>
     <div className="links">
-      <Link to="/about">Про проект</Link>
+      <Link to="/about">О проекте</Link>
       <a
         href="https://github.com/snelsi/affin"
         target="_blank"
