@@ -86,6 +86,10 @@ const StyledHeader = styled.header`
           background-color: #444;
         }
       }
+
+      @media (max-width: 720px) {
+        display: none;
+      }
     }
   }
 `;

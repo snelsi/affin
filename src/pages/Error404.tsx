@@ -13,7 +13,10 @@ export const Error404: React.FC<Error404Props> = () => {
   return (
     <>
       <Helmet>
-        <title>Аффин, универсальный поисковик по научным публикациям</title>
+        <title>
+          404 - Страница не найдена | Аффин, универсальный поисковик по научным
+          публикациям
+        </title>
       </Helmet>
       <PageWrapper data-margins>
         <h1>

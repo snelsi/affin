@@ -13,7 +13,9 @@ export const About: React.FC<AboutProps> = () => {
   return (
     <>
       <Helmet>
-        <title>Аффин, универсальный поисковик по научным публикациям</title>
+        <title>
+          Про проект - Аффин, универсальный поисковик по научным публикациям
+        </title>
       </Helmet>
       <PageWrapper data-margins>
         <h1>Про проект</h1>

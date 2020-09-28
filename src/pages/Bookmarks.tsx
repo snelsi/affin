@@ -16,7 +16,9 @@ export const Bookmarks: React.FC<BookmarksProps> = () => {
   return (
     <>
       <Helmet>
-        <title>Аффин, универсальный поисковик по научным публикациям</title>
+        <title>
+          Закладки - Аффин, универсальный поисковик по научным публикациям
+        </title>
       </Helmet>
       <PageWrapper data-margins>
         <h1>Закладки</h1>

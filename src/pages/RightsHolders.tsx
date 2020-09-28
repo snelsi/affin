@@ -13,7 +13,10 @@ export const RightsHolders: React.FC<RightsHoldersProps> = () => {
   return (
     <>
       <Helmet>
-        <title>Аффин, универсальный поисковик по научным публикациям</title>
+        <title>
+          Правообладателям - Аффин, универсальный поисковик по научным
+          публикациям
+        </title>
       </Helmet>
       <PageWrapper data-margins>
         <h1>Правообладателям</h1>

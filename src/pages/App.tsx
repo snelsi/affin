@@ -10,6 +10,10 @@ const PageWrapper = styled.div`
   padding-bottom: 64px;
   width: 100%;
   overflow-x: hidden;
+
+  & h1 {
+    margin-bottom: 20px;
+  }
 `;
 
 const stats = [

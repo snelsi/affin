@@ -3,14 +3,16 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-import { Header, Footer } from "components";
+import { Header, Footer, MobileNav } from "components";
 import PageLayout from "PageLayout";
 
 import { App } from "pages/App";
 import { About } from "pages/About";
 import { Search } from "pages/Search";
 import { Bookmarks } from "pages/Bookmarks";
+import { Catalog } from "pages/Catalog";
 import { Login } from "pages/Login";
+import { Profile } from "pages/Profile";
 import { RightsHolders } from "pages/RightsHolders";
 import { Error404 } from "pages/Error404";
 
@@ -41,11 +43,17 @@ ReactDOM.render(
             <Route path="/search">
               <Search />
             </Route>
+            <Route path="/catalog">
+              <Catalog />
+            </Route>
             <Route path="/bookmarks">
               <Bookmarks />
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route path="/to-right-holders">
               <RightsHolders />
@@ -55,6 +63,7 @@ ReactDOM.render(
             </Route>
           </Switch>
           <Footer />
+          <MobileNav />
         </PageLayout>
       </Router>
     </Auth0Provider>

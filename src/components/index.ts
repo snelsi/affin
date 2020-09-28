@@ -3,6 +3,7 @@ export * from "./Footer";
 export * from "./Header";
 export * from "./Highlighted";
 export * from "./LogoutButton";
+export * from "./MobileNav";
 export * from "./PostCard";
 export * from "./SearchInput";
 export * from "./Stats";
