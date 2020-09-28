@@ -61,4 +61,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.register();
+serviceWorker.register(serviceWorker.SWConfig);
