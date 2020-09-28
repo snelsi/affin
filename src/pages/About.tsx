@@ -15,7 +15,7 @@ export const About: React.FC<AboutProps> = () => {
       <Helmet>
         <title>Аффин, универсальный поисковик по научным публикациям</title>
       </Helmet>
-      <PageWrapper>
+      <PageWrapper data-margins>
         <h1>Про проект</h1>
       </PageWrapper>
     </>
