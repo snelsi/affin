@@ -14,6 +14,7 @@ import { Login } from "pages/Login";
 import { RightsHolders } from "pages/RightsHolders";
 import { Error404 } from "pages/Error404";
 
+import "modern-css-reset";
 import "./index.css";
 import "./typography.css";
 

@@ -6,6 +6,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
     "i18next": "^19.7.0",
+    "modern-css-reset": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
