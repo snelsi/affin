@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import { useMediaQuery } from "beautiful-react-hooks";
 
 const StyledForm = styled.form`
   & > div {
@@ -76,6 +77,8 @@ export const SearchInput: React.FC<SearchInputProps> = ({
     setValue(initialValue.trim());
   }, [initialValue]);
 
+  const isPhone = useMediaQuery("(max-width: 480px)");
+
   return (
     <StyledForm
       onSubmit={(e) => {
@@ -96,7 +99,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
               onSubmit(value.trim());
             }
           }}
-          placeholder="Введите свой запрос сюда"
+          placeholder={`Введите свой запрос${isPhone ? "" : " сюда"}`}
         />
         <button className="search-icon">
           <FiSearch />

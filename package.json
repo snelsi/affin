@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
+    "beautiful-react-hooks": "^0.30.5",
     "i18next": "^19.7.0",
     "modern-css-reset": "^1.1.1",
     "react": "^16.13.1",
