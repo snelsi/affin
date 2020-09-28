@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const StyledNav = styled.nav`
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
   background-color: #222;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 0 20px 20px;
+  padding: 0 20px var(--safe-area-inset-bottom);
   position: sticky;
   bottom: 0;
 

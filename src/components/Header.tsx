@@ -86,8 +86,18 @@ const StyledHeader = styled.header`
           background-color: #444;
         }
       }
-
-      @media (max-width: 720px) {
+    }
+  }
+  @media (max-width: 720px) {
+    background: none;
+    & > div {
+      border-bottom: 1px solid #dcd5c5;
+      & .title {
+        color: #000;
+        font-weight: 700;
+        font-variation-settings: "wght" 700;
+      }
+      & nav {
         display: none;
       }
     }
