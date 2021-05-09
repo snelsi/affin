@@ -13,8 +13,13 @@ const getArticles = async ({ search, filters }: { search: string; filters: Filte
     offset: 1,
     limit: 100,
     filter: {
-      languages: "English",
-      years: `>=${filters.publishedAfter} AND <=${filters.publishedBefore}`,
+      years:
+        [
+          filters.publishedAfter ? `>=${filters.publishedAfter}` : "",
+          filters.publishedBefore ? `<=${filters.publishedBefore}` : "",
+        ]
+          .filter(Boolean)
+          .join("&") || null,
     },
   });
 
