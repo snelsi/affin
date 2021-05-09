@@ -38,18 +38,25 @@ let j = 0;
 let x = randomInteger(0, 32);
 let y = randomInteger(0, 32);
 
+interface Material {
+  [x: string]: any;
+}
+
 const Wave = (props) => {
   const mesh = React.useRef<THREE.Mesh>();
 
   useFrame(() => {
-    if (mesh.current?.material?.uniforms) {
-      mesh.current.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j);
-      mesh.current.material.uniforms.u_color1.value = new THREE.Vector3(
+    if ((mesh?.current?.material as Material)?.uniforms) {
+      (mesh.current.material as Material).uniforms.u_randomisePosition.value = new THREE.Vector2(
+        j,
+        j,
+      );
+      (mesh.current.material as Material).uniforms.u_color1.value = new THREE.Vector3(
         R(x, y, t / 2),
         G(x, y, t / 2),
         B(x, y, t / 2),
       );
-      mesh.current.material.uniforms.u_time.value = t;
+      (mesh.current.material as Material).uniforms.u_time.value = t;
     }
 
     if (t % 0.1 === 0) {
