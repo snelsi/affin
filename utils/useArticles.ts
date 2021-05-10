@@ -12,7 +12,7 @@ export const getArticles = async ({ search, filters }: { search: string; filters
   axios.post("https://kpi-affin-2021.herokuapp.com/core/", {
     searchQuery: search,
     offset: 1,
-    limit: 100,
+    limit: 20,
     filter: {
       years:
         [
