@@ -1,5 +1,4 @@
 import * as React from "react";
-import Head from "next/head";
 import { Heading, useColorMode } from "@chakra-ui/react";
 import IArticle from "interfaces/IArticle";
 import { Card, Info, Divider, Description, StyledList } from "./style";

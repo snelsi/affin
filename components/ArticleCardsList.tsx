@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Fade } from "@chakra-ui/react";
 import IArticle from "interfaces/IArticle";
 import NotFound from "components/NotFound";
-import ArticleCard from "./ArticleCard";
+import ArticleCard, { ArticleCardPlaceholder } from "./ArticleCard";
 
 interface ArticleCardsListProps {
   articles: IArticle[];
@@ -13,12 +13,26 @@ const ArticleCardsList: React.FC<ArticleCardsListProps> = ({
   loading = false,
   ...props
 }) => {
-  if (!cards || cards.length === 0) return loading ? null : <NotFound />;
+  if (!cards || cards.length === 0) {
+    if (loading) {
+      return (
+        <Stack spacing="clamp(16px, 5vw, 32px)" {...props}>
+          <ArticleCardPlaceholder />
+          <ArticleCardPlaceholder />
+          <ArticleCardPlaceholder />
+        </Stack>
+      );
+    }
+    return <NotFound />;
+  }
+
   return (
-    <Stack spacing={8} as="ul" {...props}>
+    <Stack spacing="clamp(16px, 5vw, 32px)" as="ul" {...props}>
       {cards.map((article) => (
         <li key={article.id}>
-          <ArticleCard article={article} />
+          <Fade in>
+            <ArticleCard article={article} />
+          </Fade>
         </li>
       ))}
     </Stack>

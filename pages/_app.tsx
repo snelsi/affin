@@ -1,25 +1,33 @@
 import * as React from "react";
 import { RecoilRoot } from "recoil";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate } from "react-query/hydration";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { Chakra, getServerSideProps } from "components/Chakra";
 
 import "styles/fonts.css";
 import "styles/colors.css";
 import "styles/global.css";
 
-const queryClient = new QueryClient();
+const MyApp = ({ Component, pageProps }) => {
+  const queryClientRef = React.useRef<QueryClient>(null);
+  if (!queryClientRef.current) {
+    queryClientRef.current = new QueryClient();
+  }
 
-const MyApp = ({ Component, pageProps }) => (
-  <RecoilRoot>
-    <Chakra cookies={pageProps.cookies}>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </Chakra>
-  </RecoilRoot>
-);
+  return (
+    <RecoilRoot>
+      <Chakra cookies={pageProps.cookies}>
+        <QueryClientProvider client={queryClientRef.current}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <Component {...pageProps} />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </Hydrate>
+        </QueryClientProvider>
+      </Chakra>
+    </RecoilRoot>
+  );
+};
 
 export { getServerSideProps };
 

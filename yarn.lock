@@ -912,10 +912,10 @@
     prop-types "^15.7.2"
     tslib "^2.1.0"
 
-"@react-three/fiber@^6.0.20":
-  version "6.0.20"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.0.20.tgz#fc89e42db453bcd241a8f2dfb28a8cc02ca7b2c3"
-  integrity sha512-S3rg8cdxWjPDW2YxRLfKP6Q9Jk72vnOazIbko//mxvn44MV7iz84LpbyK+5msctfe6GtZAHuEiq4gwZBwaJCag==
+"@react-three/fiber@^6.0.21":
+  version "6.0.21"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.0.21.tgz#f1936eb046a504f46a098273b925c7a8fb6fb79a"
+  integrity sha512-EH3Dzkm617k2ZxmHdw8dlNPeCYaoFTdlL8zl0zF/5z6Mwzxm7Pa/M6teg+dM9+19E4HIxCmIfI2VnTYETbAhXg==
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"

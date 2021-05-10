@@ -1,9 +1,10 @@
 import * as React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Heading } from "@chakra-ui/react";
 
-import { Layout, Hero } from "components";
+import { Layout, Hero, Spinner } from "components";
 import SearchBar from "components/SearchBar";
 import ArticleCardsList from "components/ArticleCardsList";
 import { parseQuery } from "utils/useSearchParams";
@@ -12,7 +13,7 @@ import useSearch from "utils/useSearch";
 
 const round = (num: number) => {
   if (num < 10000) return num;
-  return Math.round(num / 100000) * 100000;
+  return Math.round(num / 1000) * 1000;
 };
 
 const getTitle = (title: string | string[]): string => {
@@ -20,10 +21,9 @@ const getTitle = (title: string | string[]): string => {
   return `${t ? `${t} | ` : ""} Affin Search engine`;
 };
 
-interface SearchPageProps {
-  query: { [x: string]: string | string[] };
-}
-const SearchPage: NextPage<SearchPageProps> = ({ query }) => {
+interface SearchPageProps {}
+const SearchPage: NextPage<SearchPageProps> = () => {
+  const { query } = useRouter();
   const { setSearch, setActive, setFilters } = useSearch();
 
   React.useEffect(() => {
@@ -47,7 +47,13 @@ const SearchPage: NextPage<SearchPageProps> = ({ query }) => {
 
       <Hero>
         <Heading as="h1" size="2xl">
-          {isLoading ? "Loading..." : <>{round(total)} Found</>}
+          {isLoading ? (
+            <>
+              Loading <Spinner />
+            </>
+          ) : (
+            <>{round(total)} Found</>
+          )}
         </Heading>
         <SearchBar />
       </Hero>
@@ -57,7 +63,5 @@ const SearchPage: NextPage<SearchPageProps> = ({ query }) => {
     </Layout>
   );
 };
-
-SearchPage.getInitialProps = async ({ query }) => ({ query });
 
 export default SearchPage;

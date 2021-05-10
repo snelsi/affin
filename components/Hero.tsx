@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 import GradientBG from "components/GradientBG";
 
 const Wrapper = styled.div`
-  margin-bottom: -72px;
-  padding: 80px 0 120px;
+  margin-bottom: clamp(-72px, -5vw, -36px);
+  padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 10vw, 120px);
   position: relative;
 
   & .bg {
@@ -28,7 +28,17 @@ const Content = styled.div`
   z-index: 1;
 
   & h1 {
+    align-items: center;
+    color: var(--chakra-colors-gray-800);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     margin-bottom: 0.666em;
+    & svg {
+      margin-left: 0.5em;
+      height: 0.8em;
+      width: 0.8em;
+    }
   }
 `;
 

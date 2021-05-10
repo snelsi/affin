@@ -5,13 +5,25 @@ import useSearch from "utils/useSearch";
 import Select from "./Select";
 import Year from "./Year";
 
+/* --color-label: var(--color-gray-600);
+  --color-bg: var(--color-violet-50);
+  --color-input-bg: var(--color-base-white);
+  --color-input-color: var(--color-base-black); 
+
+   background-color: var(--color-bg); */
+
+/* --color-label: var(--color-gray-100);
+    --color-bg: var(--color-gray-700);
+    --color-input-bg: var(--color-gray-800);
+    --color-input-color: var(--color-gray-100); */
+
 const Card = styled(Box)`
   background-color: var(--color-violet-50);
   border: none;
   border-radius: 10px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
   transition: var(--transition-ease);
-  margin-top: 48px;
+  margin-top: clamp(20px, 5vw, 48px);
   padding: 24px;
 
   & > *:not(:last-child) {
@@ -76,20 +88,24 @@ const Actions = styled.div`
 
 interface FiltersProps {}
 const Filters: React.FC<FiltersProps> = () => {
-  const { filters, setFilters, searchArticles } = useSearch();
+  const { filters, setFilters, searchArticles, resetFilters } = useSearch();
   const { colorMode } = useColorMode();
 
-  const handleChange = (name: string, value: string | number) =>
+  const handleChange = (name: string, value: string | string[] | number) =>
     setFilters((prev) => ({ ...prev, [name]: value }));
 
-  const resetChanges = () =>
-    setFilters({
-      authors: null,
-      publishers: null,
-      publishedAfter: null,
-      publishedBefore: null,
-    });
   const applyChanges = () => searchArticles();
+
+  React.useEffect(() => {
+    if (!filters.publishedAfter) {
+      setFilters((f) => ({ ...f, publishedAfter: new Date().getFullYear() - 40 }));
+    }
+  }, [filters.publishedAfter]);
+  React.useEffect(() => {
+    if (!filters.publishedBefore) {
+      setFilters((f) => ({ ...f, publishedBefore: new Date().getFullYear() }));
+    }
+  }, [filters.publishedBefore]);
 
   return (
     <Card data-theme={colorMode}>
@@ -98,11 +114,13 @@ const Filters: React.FC<FiltersProps> = () => {
         isMulti
         value={filters.authors || []}
         onChange={(value) => handleChange("authors", value)}
+        instanceId="authors"
       />
       <Select
         label="Publisher"
         value={filters.publishers}
         onChange={(value) => handleChange("publishers", value)}
+        instanceId="publisher"
       />
       <Year
         value={[
@@ -117,7 +135,7 @@ const Filters: React.FC<FiltersProps> = () => {
       />
 
       <Actions>
-        <Button type="button" className="secondary" onClick={resetChanges}>
+        <Button type="button" className="secondary" onClick={resetFilters}>
           Reset
         </Button>
         <Button type="button" className="primary" onClick={applyChanges}>

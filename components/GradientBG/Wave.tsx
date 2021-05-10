@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 
 import fragmentShader from "./fragmentShader";
 import vertexShader from "./vertexShader";
@@ -44,6 +44,7 @@ interface Material {
 
 const Wave = (props) => {
   const mesh = React.useRef<THREE.Mesh>();
+  const { size } = useThree();
 
   useFrame(() => {
     if ((mesh?.current?.material as Material)?.uniforms) {
@@ -74,15 +75,13 @@ const Wave = (props) => {
     }
 
     // Increase t by a certain value every frame
-    j = j + 0.004;
-    t = t + 0.001;
-    // j = j + 0.002;
-    // t = t + 0.006;
+    j = j + 0.003;
+    t = t + 0.002;
   });
 
   return (
     <mesh {...props} ref={mesh} position={[-200, 270, -280]} scale={3.5}>
-      <planeGeometry args={[1000, 400, 100, 100]} />
+      <planeGeometry args={[Math.max(size.width / 2, 500), 400, 100, 100]} />
       <shaderMaterial
         attach="material"
         uniforms={uniforms}

@@ -3,6 +3,10 @@ import styled from "@emotion/styled";
 
 import AsyncCreatableSelect from "react-select/async-creatable";
 
+/* background-color: var(--color-input-bg); */
+/* color: var(--color-input-color); */
+/* color: var(--color-label); */
+
 const StyledLabel = styled.label`
   display: block;
   & .react-select__control {
@@ -37,13 +41,29 @@ const promiseOptions = (inputValue: string) =>
     }, 1000);
   });
 
+interface Value {
+  label: string;
+  value: string;
+}
 interface SelectProps {
   label: React.ReactNode;
   isMulti?: boolean;
   value?: string | string[];
-  onChange?: (value: string) => void;
+  onChange?: (value: string | string[]) => void;
+  instanceId?: string;
 }
-const Select: React.FC<SelectProps> = ({ label, isMulti = false, value, onChange }) => {
+const Select: React.FC<SelectProps> = ({ label, isMulti = false, value, onChange, instanceId }) => {
+  let v: Value | Value[] = null;
+  if (isMulti && Array.isArray(value)) {
+    v = value.map((v) => ({ label: v, value: v }));
+  } else {
+    if (Array.isArray(value)) {
+      v = { label: value[0], value: value[0] };
+    } else if (value) {
+      v = { label: value, value: value };
+    }
+  }
+
   return (
     <StyledLabel>
       <LabelTitle>{label}</LabelTitle>
@@ -55,8 +75,12 @@ const Select: React.FC<SelectProps> = ({ label, isMulti = false, value, onChange
         allowCreateWhileLoading
         formatCreateLabel={(inputValue: any) => inputValue}
         isMulti={isMulti}
-        value={value}
-        onChange={onChange}
+        value={v}
+        onChange={(v: Value | Value[] | null) => {
+          const selected = Array.isArray(v) ? v.map((v) => v.value) : v?.value;
+          onChange(selected);
+        }}
+        instanceId={instanceId}
       />
     </StyledLabel>
   );

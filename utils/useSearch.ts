@@ -18,7 +18,24 @@ const useSearch = () => {
     });
   };
 
-  return { search, setSearch, active, setActive, filters, setFilters, searchArticles };
+  const resetFilters = () =>
+    setFilters({
+      authors: null,
+      publishers: null,
+      publishedAfter: new Date().getFullYear() - 40,
+      publishedBefore: new Date().getFullYear(),
+    });
+
+  return {
+    search,
+    setSearch,
+    active,
+    setActive,
+    filters,
+    setFilters,
+    searchArticles,
+    resetFilters,
+  };
 };
 
 useSearch.displayName = "useSearch";

@@ -7,7 +7,7 @@ const queryToKey = (query: SearchFilters) => {
   return query;
 };
 
-const getArticles = async ({ search, filters }: { search: string; filters: Filters }) =>
+export const getArticles = async ({ search, filters }: { search: string; filters: Filters }) =>
   axios.post("https://kpi-affin-2021.herokuapp.com/core/", {
     searchQuery: search,
     offset: 1,

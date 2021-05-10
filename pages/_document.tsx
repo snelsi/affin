@@ -6,7 +6,7 @@ import theme from "styles/theme";
 class MyDocument extends Document {
   public render() {
     return (
-      <Html lang="ru">
+      <Html>
         <Head />
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
