@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import useSearchParams from "utils/useSearchParams";
+import IArticle from "interfaces/IArticle";
 import { Filters, SearchFilters } from "interfaces/filters";
 
 const queryToKey = (query: SearchFilters) => {
@@ -23,6 +24,28 @@ export const getArticles = async ({ search, filters }: { search: string; filters
     },
   });
 
+const getUniqueTrimmed = (values: string[] | null) =>
+  values ? Array.from(new Set(values.map((v) => v?.trim()))) : values;
+
+const getUniqueArticles = (articles: IArticle[]): IArticle[] => {
+  if (!articles) return articles;
+
+  const urls = [];
+  const res = [];
+  for (let article of articles) {
+    if (article.downloadUrl && !urls[article.downloadUrl]) {
+      res.push(article);
+      urls[article.downloadUrl] = true;
+    }
+  }
+
+  return res.map((article) => ({
+    ...article,
+    authors: getUniqueTrimmed(article.authors),
+    topics: getUniqueTrimmed(article.topics),
+  }));
+};
+
 const useArticles = () => {
   const { search, filters } = useSearchParams();
 
@@ -30,8 +53,8 @@ const useArticles = () => {
     getArticles({ search, filters }),
   );
 
-  const articles = data?.data?.data;
-  const total = data?.data?.total || 0;
+  const articles = getUniqueArticles(data?.data?.data);
+  const total: number = data?.data?.total || 0;
 
   return { articles, total, ...props };
 };
