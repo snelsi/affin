@@ -11,6 +11,7 @@ export const searchFiltersState = atom<Filters>({
   default: {
     authors: null,
     publishers: null,
+    topics: null,
     publishedAfter: null,
     publishedBefore: null,
   },
