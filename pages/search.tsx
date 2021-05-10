@@ -32,6 +32,9 @@ const SearchPage: NextPage<SearchPageProps> = () => {
       Array.isArray(f) ? f.length > 0 : Boolean(f),
     );
 
+    filters.publishedAfter = filters.publishedAfter || new Date().getFullYear() - 40;
+    filters.publishedBefore = filters.publishedBefore || new Date().getFullYear();
+
     setSearch(search);
     setActive(active);
     setFilters(filters);
