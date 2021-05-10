@@ -52,7 +52,7 @@ export const Info = styled.div`
   font-weight: normal;
   font-size: 14px;
   line-height: 21px;
-  margin: 20px 0;
+  margin: 20px 0 0;
   & span {
     display: inline;
   }
@@ -79,7 +79,7 @@ export const Description = styled(Text)`
   font-weight: normal;
   font-size: 16px;
   line-height: 1.5;
-  margin: 20px 0;
+  margin: 20px 0 0;
 
   display: -webkit-box;
   -webkit-line-clamp: 5;
