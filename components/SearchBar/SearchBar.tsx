@@ -9,6 +9,7 @@ import {
   Tooltip,
   Collapse,
 } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 import { FiSearch, FiFilter } from "react-icons/fi";
 import useSearch from "utils/useSearch";
 import Filters from "./Filters";
@@ -123,6 +124,7 @@ const SubmitButton = styled(Button)`
 interface SearchBarProps {}
 const SearchBar: React.FC<SearchBarProps> = () => {
   const { search, setSearch, active, setActive, searchArticles } = useSearch();
+  const { t } = useTranslation("common");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
@@ -144,7 +146,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
           <Input
             id="search-input"
             type="search"
-            placeholder="Search for articles..."
+            placeholder={t("search articles")}
             required
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -153,10 +155,14 @@ const SearchBar: React.FC<SearchBarProps> = () => {
             autoComplete="off"
           />
           <InputRightElement>
-            <Tooltip label="Advanced options" aria-label="Advanced options" placement="top">
+            <Tooltip
+              label={t("advanced options")}
+              aria-label={t("advanced options")}
+              placement="top"
+            >
               <Button
                 onClick={toggleAdvancedOptions}
-                aria-label="Advanced options"
+                aria-label={t("advanced options")}
                 type="button"
                 data-active={active}
               >
@@ -165,7 +171,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
             </Tooltip>
           </InputRightElement>
         </StyledInputGroup>
-        <SubmitButton type="submit">Search</SubmitButton>
+        <SubmitButton type="submit">{t("search")}</SubmitButton>
       </div>
       <Collapse in={active} animateOpacity>
         <Filters />

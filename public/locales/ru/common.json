@@ -1,0 +1,23 @@
+{
+  "affin": "Аффин",
+  "hello": "Привет",
+  "search articles": "Поиск статей...",
+  "search": "Поиск",
+  "advanced options": "Дополнительные фильтры",
+  "loading": "Загрузка",
+  "found": "{{amount}} Совпадений",
+  "affin search engine": "Аффин | Поисковик научных статей",
+  "affin search engine title": "{{title}}Аффин Поисковик научных статей",
+  "change locale": "Выбрать язык",
+  "reset": "Сбросить",
+  "apply": "Применить",
+  "authors": "Авторы",
+  "publisher": "Издатель",
+  "topics": "Темы",
+  "year": "Год выпуска",
+  "select...": "Выбрать...",
+  "nothing found": "Ничего не найдено",
+  "nothing found description": "Попробуйте сбросить фильтры или проверить, нет ли опечаток в запросе",
+  "home": "Домой",
+  "something went wrong": "Что-то пошло не так"
+}

@@ -1,0 +1,23 @@
+{
+  "affin": "Аффін",
+  "hello": "Привіт",
+  "search articles": "Пошук статей...",
+  "search": "Пошук",
+  "advanced optіons": "Додаткові параметри",
+  "loading": "Завантаження",
+  "found": "{{amount}} Результатів",
+  "affin search engine": "Аффін | Пошуковик наукових статей",
+  "affin search engine title": "{{tіtle}}Аффін Пошуковик наукових статей",
+  "change locale": "Обрати мову",
+  "reset": "Скинути",
+  "apply": "Застосувати",
+  "authors": "Автори",
+  "publisher": "Видавець",
+  "topics": "Теми",
+  "year": "Рік випуску",
+  "select...": "Обрати...",
+  "nothing found": "Нічого не знайдено",
+  "nothing found description": "Спробуйте скинути фільтри та виправити помилки в запиті",
+  "home": "Назад",
+  "something went wrong": "Щось пішло не по плану"
+}

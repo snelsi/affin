@@ -9,6 +9,7 @@ const ToggleTheme: React.FC<ToggleThemeProps> = () => {
     <IconButton
       onClick={toggleColorMode}
       aria-label={colorMode === "light" ? "Use dark theme" : "Use light theme"}
+      variant="ghost"
     >
       {colorMode === "light" ? <FiSun /> : <FiMoon />}
     </IconButton>

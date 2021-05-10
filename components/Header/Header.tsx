@@ -1,8 +1,10 @@
 import * as React from "react";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { useTranslation } from "next-i18next";
 import { HStack, Heading } from "@chakra-ui/react";
 import ToggleTheme from "./ToggleTheme";
+import Language from "./Language";
 
 const Wrapper = styled.header`
   height: 64px;
@@ -10,7 +12,8 @@ const Wrapper = styled.header`
 
   & > .chakra-stack {
     height: inherit;
-    padding: 0 30px;
+    padding: 0 clamp(15px, 4%, 30px);
+
     & > h2 {
       margin-right: auto;
     }
@@ -28,18 +31,22 @@ const Wrapper = styled.header`
 interface HeaderProps {
   minimal?: boolean;
 }
-const Header: React.FC<HeaderProps> = ({ minimal = false }) => (
-  <Wrapper data-minimal={minimal}>
-    <HStack width="100%" spacing={6}>
-      <Heading size="lg" fontSize="24px">
-        <Link href="/" passHref>
-          <a href="/">Affin</a>
-        </Link>
-      </Heading>
+const Header: React.FC<HeaderProps> = ({ minimal = false }) => {
+  const { t } = useTranslation("common");
+  return (
+    <Wrapper data-minimal={minimal}>
+      <HStack width="100%" spacing={6}>
+        <Heading size="lg" fontSize="24px">
+          <Link href="/" passHref>
+            <a href="/">{t("affin")}</a>
+          </Link>
+        </Heading>
 
-      <ToggleTheme />
-    </HStack>
-  </Wrapper>
-);
+        <ToggleTheme />
+        <Language />
+      </HStack>
+    </Wrapper>
+  );
+};
 
 export default Header;

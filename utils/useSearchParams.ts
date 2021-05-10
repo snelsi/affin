@@ -16,18 +16,17 @@ export const parseQuery = (query: { [x: string]: string | string[] }): SearchFil
     const search = checkString(query.q) || "";
     const authors = checkArray(query.authors);
     const publishers = checkString(query.publishers);
+    const topics = checkArray(query.topics);
     const publishedAfter = checkNumber(query.publishedAfter) || null;
     const publishedBefore = checkNumber(query.publishedBefore) || null;
 
-    return { search, authors, publishers, publishedAfter, publishedBefore };
-  } catch (e) {
-    console.clear();
-    console.log("Failed to pare query");
-    console.log(e);
+    return { search, authors, publishers, topics, publishedAfter, publishedBefore };
+  } catch {
     return {
       search: null,
       authors: null,
       publishers: null,
+      topics: null,
       publishedAfter: null,
       publishedBefore: null,
     };

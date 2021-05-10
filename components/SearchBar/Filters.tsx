@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
+import { useTranslation } from "next-i18next";
 import { Box, Button, useColorMode } from "@chakra-ui/react";
 import useSearch from "utils/useSearch";
 import Select from "./Select";
@@ -88,6 +89,7 @@ const Actions = styled.div`
 
 interface FiltersProps {}
 const Filters: React.FC<FiltersProps> = () => {
+  const { t } = useTranslation("common");
   const { filters, setFilters, searchArticles, resetFilters } = useSearch();
   const { colorMode } = useColorMode();
 
@@ -110,17 +112,24 @@ const Filters: React.FC<FiltersProps> = () => {
   return (
     <Card data-theme={colorMode}>
       <Select
-        label="Authors"
+        label={t("authors")}
         isMulti
         value={filters.authors || []}
         onChange={(value) => handleChange("authors", value)}
         instanceId="authors"
       />
       <Select
-        label="Publisher"
+        label={t("publisher")}
         value={filters.publishers}
         onChange={(value) => handleChange("publishers", value)}
         instanceId="publisher"
+      />
+      <Select
+        label={t("topics")}
+        isMulti
+        value={filters.topics || []}
+        onChange={(value) => handleChange("topics", value)}
+        instanceId="topics"
       />
       <Year
         value={[
@@ -131,15 +140,15 @@ const Filters: React.FC<FiltersProps> = () => {
           handleChange("publishedAfter", years[0]);
           handleChange("publishedBefore", years[1]);
         }}
-        label="Year"
+        label={t("year")}
       />
 
       <Actions>
         <Button type="button" className="secondary" onClick={resetFilters}>
-          Reset
+          {t("reset")}
         </Button>
         <Button type="button" className="primary" onClick={applyChanges}>
-          Apply
+          {t("apply")}
         </Button>
       </Actions>
     </Card>

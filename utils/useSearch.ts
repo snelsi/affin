@@ -22,6 +22,7 @@ const useSearch = () => {
     setFilters({
       authors: null,
       publishers: null,
+      topics: null,
       publishedAfter: new Date().getFullYear() - 40,
       publishedBefore: new Date().getFullYear(),
     });

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RecoilRoot } from "recoil";
 import { Hydrate } from "react-query/hydration";
+import { appWithTranslation } from "next-i18next";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Chakra, getServerSideProps } from "components/Chakra";
@@ -31,4 +32,4 @@ const MyApp = ({ Component, pageProps }) => {
 
 export { getServerSideProps };
 
-export default MyApp;
+export default appWithTranslation(MyApp);

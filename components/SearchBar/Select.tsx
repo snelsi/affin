@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-
+import { useTranslation } from "next-i18next";
 import AsyncCreatableSelect from "react-select/async-creatable";
 
 /* background-color: var(--color-input-bg); */
@@ -51,8 +51,18 @@ interface SelectProps {
   value?: string | string[];
   onChange?: (value: string | string[]) => void;
   instanceId?: string;
+  placeholder?: string;
 }
-const Select: React.FC<SelectProps> = ({ label, isMulti = false, value, onChange, instanceId }) => {
+const Select: React.FC<SelectProps> = ({
+  label,
+  isMulti = false,
+  value,
+  onChange,
+  instanceId,
+  placeholder,
+}) => {
+  const { t } = useTranslation("common");
+
   let v: Value | Value[] = null;
   if (isMulti && Array.isArray(value)) {
     v = value.map((v) => ({ label: v, value: v }));
@@ -81,6 +91,7 @@ const Select: React.FC<SelectProps> = ({ label, isMulti = false, value, onChange
           onChange(selected);
         }}
         instanceId={instanceId}
+        placeholder={placeholder || t("select...")}
       />
     </StyledLabel>
   );

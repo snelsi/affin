@@ -1,0 +1,23 @@
+{
+  "affin": "Affin",
+  "hello": "Hello",
+  "search articles": "Search for articles...",
+  "search": "Search",
+  "advanced options": "Advanced options",
+  "loading": "Loading",
+  "found": "{{amount}} Found",
+  "affin search engine": "Affin | Search Engine",
+  "affin search engine title": "{{title}}Affin Search engine",
+  "change locale": "Change locale",
+  "reset": "Reset",
+  "apply": "Apply",
+  "authors": "Authors",
+  "publisher": "Publisher",
+  "topics": "Topics",
+  "year": "Year",
+  "select...": "Select...",
+  "nothing found": "Nothing found",
+  "nothing found description": "Try resetting filters or checking for typos in the query",
+  "home": "Home",
+  "something went wrong": "Something went wrong"
+}

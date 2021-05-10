@@ -2,6 +2,9 @@ import * as React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { Heading } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import { Layout, Hero } from "components";
 import SearchBar from "components/SearchBar";
 import Topics from "components/Landing/Topics";
@@ -49,23 +52,33 @@ const articles: IArticle[] = [
     id: "3",
   },
 ];
-const IndexPage: NextPage = () => (
-  <Layout>
-    <Head>
-      <title>Affin | Search Engine</title>
-    </Head>
+const IndexPage: NextPage = () => {
+  const { t } = useTranslation("common");
 
-    <Hero>
-      <Heading as="h1" size="2xl">
-        Hello
-      </Heading>
-      <SearchBar />
-      <Topics />
-    </Hero>
-    <div data-fix-width>
-      <ArticleCardsList loading={false} articles={articles} />
-    </div>
-  </Layout>
-);
+  return (
+    <Layout>
+      <Head>
+        <title>{t("affin search engine")}</title>
+      </Head>
+
+      <Hero>
+        <Heading as="h1" size="2xl">
+          {t("hello")}
+        </Heading>
+        <SearchBar />
+        <Topics />
+      </Hero>
+      <div data-fix-width>
+        <ArticleCardsList loading={false} articles={articles} />
+      </div>
+    </Layout>
+  );
+};
+
+export const getServerSideProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export default IndexPage;
