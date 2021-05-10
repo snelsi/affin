@@ -49,14 +49,21 @@ const getUniqueArticles = (articles: IArticle[]): IArticle[] => {
 const useArticles = () => {
   const { search, filters } = useSearchParams();
 
-  const { data, ...props } = useQuery(["articles", queryToKey({ search, ...filters })], () =>
+  const { data, error, ...props } = useQuery(["articles", queryToKey({ search, ...filters })], () =>
     getArticles({ search, filters }),
   );
 
   const articles = getUniqueArticles(data?.data?.data);
   const total: number = data?.data?.total || 0;
 
-  return { articles, total, ...props };
+  const typedError = error as {
+    response: {
+      status: string;
+      statusText: string;
+    };
+  };
+
+  return { articles, total, error: typedError, ...props };
 };
 
 export default useArticles;
