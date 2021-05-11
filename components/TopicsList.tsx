@@ -20,13 +20,14 @@ const StyledTag = styled(Tag)`
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
-  padding: 8px 12px;
+  padding: 0;
   transition: all var(--transition-ease);
 
   & > span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 8px 12px;
     &::first-letter {
       text-transform: uppercase;
     }
@@ -93,7 +94,9 @@ const Topics: React.FC<TopicsProps> = ({
                 aria-label="Hide extra topics"
                 className="chakra-tag"
               >
-                <FiX />
+                <span>
+                  <FiX />
+                </span>
               </StyledTag>
             ) : (
               <StyledTag
@@ -103,7 +106,7 @@ const Topics: React.FC<TopicsProps> = ({
                 aria-label="Show more topics"
                 className="chakra-tag"
               >
-                {`+${extraTopics.length}`}
+                <span>{`+${extraTopics.length}`}</span>
               </StyledTag>
             )}
           </WrapItem>
