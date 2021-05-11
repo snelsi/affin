@@ -26,7 +26,7 @@ const ErrorCard: React.FC<ErrorCardProps> = ({ error, ...props }) => {
 
   if (!error?.response) return null;
   return (
-    <Card data-theme={colorMode} {...props}>
+    <Card data-theme={colorMode} {...props} mb="clamp(16px, 5vw, 32px)">
       <Heading size="lg" mb="16px">
         {error.response.status} | {t("something went wrong")}
       </Heading>

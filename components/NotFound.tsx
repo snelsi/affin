@@ -73,7 +73,7 @@ const NotFound: React.FC<NotFoundProps> = ({ ...props }) => {
   const { resetFilters } = useSearch();
 
   return (
-    <Card data-theme={colorMode} {...props}>
+    <Card data-theme={colorMode} {...props} mb="clamp(16px, 5vw, 32px)">
       <Heading size="lg" mb="16px">
         {t("nothing found")}
       </Heading>
