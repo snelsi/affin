@@ -21,6 +21,15 @@ const Wrapper = styled.div`
     line-height: 1;
     width: 100px;
   }
+
+  @media (max-width: 420px) {
+    & > * {
+      flex: 1;
+      & input {
+        width: 100%;
+      }
+    }
+  }
 `;
 
 interface SearchBarProps {

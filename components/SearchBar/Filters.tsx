@@ -50,6 +50,8 @@ const Actions = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-direction: row;
+
   & > *:not(:last-child) {
     margin-right: 12px;
   }
@@ -82,6 +84,18 @@ const Actions = styled.div`
       }
       &:active {
         background-color: var(--color-green-600);
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    & > * {
+      width: 100%;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      &:not(:last-child) {
+        margin-bottom: 12px;
       }
     }
   }
