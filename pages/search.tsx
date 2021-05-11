@@ -44,7 +44,7 @@ const SearchPage: NextPage<SearchPageProps> = () => {
   return (
     <Layout>
       <Head>
-        <title>{t("affin search engine title", { title: title || "" })}</title>
+        <title>{t("affin search engine title", { title: title ? `${title} | ` : "" })}</title>
       </Head>
 
       <Hero>
