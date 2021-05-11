@@ -72,6 +72,10 @@ export const Divider = styled.span`
   && {
     display: inline-block;
   }
+
+  &:first-child {
+    display: none;
+  }
 `;
 
 export const Description = styled(Text)`

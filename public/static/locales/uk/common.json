@@ -19,5 +19,7 @@
   "nothing found": "Нічого не знайдено",
   "nothing found description": "Спробуйте скинути фільтри та виправити помилки в запиті",
   "home": "Назад",
-  "something went wrong": "Щось пішло не по плану"
+  "something went wrong": "Щось пішло не по плану",
+  "you didn't specify query": "Ви не вказали пошуковий запит",
+  "enter search query": "Введiть запит у поле вводу та нажмiть 'Пошук'"
 }

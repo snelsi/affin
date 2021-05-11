@@ -6,7 +6,7 @@ import { Heading } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { Layout, Hero, Spinner, ErrorCard, SearchBar } from "components";
+import { Layout, Hero, Spinner, ErrorCard, NoSearch, SearchBar } from "components";
 import ArticleCardsList from "components/ArticleCardsList";
 import { parseQuery } from "utils/useSearchParams";
 import useArticles from "utils/useArticles";
@@ -37,7 +37,7 @@ const SearchPage: NextPage<SearchPageProps> = () => {
     setFilters(filters);
   }, [query]);
 
-  const { isLoading, error, articles, total } = useArticles();
+  const { isLoading, error, articles, total, enabled } = useArticles();
 
   const title = Array.isArray(query.q) ? query.q[0] : query.q;
 
@@ -61,7 +61,7 @@ const SearchPage: NextPage<SearchPageProps> = () => {
       </Hero>
       <div data-fix-width>
         {error && <ErrorCard error={error} />}
-        <ArticleCardsList loading={isLoading} articles={articles} />
+        {enabled ? <ArticleCardsList loading={isLoading} articles={articles} /> : <NoSearch />}
       </div>
     </Layout>
   );

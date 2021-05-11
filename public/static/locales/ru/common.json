@@ -19,5 +19,7 @@
   "nothing found": "Ничего не найдено",
   "nothing found description": "Попробуйте сбросить фильтры или проверить, нет ли опечаток в запросе",
   "home": "Домой",
-  "something went wrong": "Что-то пошло не так"
+  "something went wrong": "Что-то пошло не так",
+  "you didn't specify query": "Вы не указали поисковый запрос",
+  "enter search query": "Введите запрос в поле ввода и нажмите 'Поиск'"
 }

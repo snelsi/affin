@@ -19,5 +19,7 @@
   "nothing found": "Nothing found",
   "nothing found description": "Try resetting filters or checking for typos in the query",
   "home": "Home",
-  "something went wrong": "Something went wrong"
+  "something went wrong": "Something went wrong",
+  "you didn't specify query": "You didn't specify a search query",
+  "enter search query": "Enter the query in the input field and press 'Search'"
 }

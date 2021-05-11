@@ -19,7 +19,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, ...props }) => {
         </a>
       </Heading>
       <Info>
-        <span>{authors.join(", ")}</span>
+        {authors?.length > 0 && <span>{authors.join(", ")}</span>}
         {year && (
           <>
             <Divider />
