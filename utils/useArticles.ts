@@ -21,12 +21,13 @@ const queryToKey = ({ search, filters }: { search: string; filters: Filters | nu
   const topicsString = topics?.join("|");
   const authorsString = authors?.join("|");
 
-  const filter = {
+  let filter = {
     topics: topicsString,
     authors: authorsString,
     publishers,
     years,
   };
+  if (!Object.values(filter).some(Boolean)) filter = undefined;
 
   return { search: searchQuery, filters: filter };
 };
@@ -38,12 +39,15 @@ export const getArticles = async (
 ) => {
   const { search, filters } = queryToKey(query);
 
-  return axios.post("https://kpi-affin-2021.herokuapp.com/core/", {
-    searchQuery: search,
-    offset,
-    limit,
-    filter: filters,
-  });
+  return axios.post(
+    "https://kka8kksmqf.execute-api.eu-central-1.amazonaws.com/Prod/Scopus/GetArticles/",
+    {
+      searchQuery: search,
+      offset,
+      limit,
+      filter: filters,
+    },
+  );
 };
 
 const getUniqueTrimmed = (values: string[] | null) =>
