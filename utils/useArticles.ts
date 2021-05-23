@@ -38,7 +38,7 @@ export const getArticles = async (
 ) => {
   const { search, filters } = queryToKey(query);
 
-  return axios.post("https://kpi-affin-2021.herokuapp.com/core/", {
+  return axios.post("https://kpi-affin-2021.herokuapp.com/pullArticles/", {
     searchQuery: search,
     offset,
     limit,
