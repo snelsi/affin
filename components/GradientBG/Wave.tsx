@@ -16,7 +16,7 @@ const R = (x: number, y: number, t: number) =>
   Math.floor(192 + 32 * Math.cos((x ** 2 - y ** 2) / 300 + t));
 const G = (x: number, y: number, t: number) => 192;
 const B = (x: number, y: number, t: number) =>
-  Math.floor(192 + 64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) ** 2 + (y - 100) ** 2) / 1100));
+  Math.floor(192 + 32 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) ** 2 + (y - 100) ** 2) / 1100));
 
 const randomisePosition = new THREE.Vector2(1, 2);
 
