@@ -13,14 +13,10 @@ const rgb = (r: number, g: number, b: number) => new THREE.Vector3(r, g, b);
 let vCheck = false;
 
 const R = (x: number, y: number, t: number) =>
-  Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
-const G = (x: number, y: number, t: number) =>
-  Math.floor(192 + 64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300));
+  Math.floor(192 + 32 * Math.cos((x ** 2 - y ** 2) / 300 + t));
+const G = (x: number, y: number, t: number) => 192;
 const B = (x: number, y: number, t: number) =>
-  Math.floor(
-    192 +
-      64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100),
-  );
+  Math.floor(192 + 64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) ** 2 + (y - 100) ** 2) / 1100));
 
 const randomisePosition = new THREE.Vector2(1, 2);
 
