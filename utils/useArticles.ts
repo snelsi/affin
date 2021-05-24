@@ -4,6 +4,13 @@ import useSearchParams from "utils/useSearchParams";
 import IArticle from "interfaces/IArticle";
 import { Filters } from "interfaces/filters";
 
+interface IFilters {
+  topics?: string;
+  authors?: string;
+  publishers?: string;
+  years?: string;
+}
+
 const queryToKey = ({ search, filters }: { search: string; filters: Filters | null }) => {
   const topics = getUniqueTrimmed(filters?.topics) || null;
   const authors = getUniqueTrimmed(filters?.authors) || null;
@@ -21,14 +28,13 @@ const queryToKey = ({ search, filters }: { search: string; filters: Filters | nu
   const topicsString = topics?.join("|");
   const authorsString = authors?.join("|");
 
-  const filter = {
-    topics: topicsString,
-    authors: authorsString,
-    publishers,
-    years,
-  };
+  let filter: IFilters = {};
+  if (topicsString) filter.topics = topicsString;
+  if (authorsString) filter.authors = authorsString;
+  if (publishers) filter.publishers = publishers;
+  if (years) filter.years = years;
 
-  return { search: searchQuery, filters: filter };
+  return { search: searchQuery, filters: Object.keys(filter).length === 0 ? null : filter };
 };
 
 export const getArticles = async (
