@@ -2,6 +2,7 @@ import * as React from "react";
 import { Heading, useColorMode } from "@chakra-ui/react";
 import IArticle from "interfaces/IArticle";
 import { Card, Info, Divider, Description, StyledList } from "./style";
+import stripHtml from "utils/stripHtml";
 
 interface ArticleCardProps {
   article: IArticle;
@@ -9,8 +10,12 @@ interface ArticleCardProps {
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, ...props }) => {
   const { colorMode } = useColorMode();
 
+  const title = React.useMemo(() => stripHtml(article?.title), [article?.title]);
+  const description = React.useMemo(() => stripHtml(article?.description), [article?.description]);
+
   if (!article) return null;
-  const { title, authors, year, publisher, description, topics, downloadUrl } = article;
+  const { authors, year, publisher, topics, downloadUrl } = article;
+
   return (
     <Card as="article" data-theme={colorMode} {...props}>
       <Heading as="h3" fontSize="xl">
