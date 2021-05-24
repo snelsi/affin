@@ -16,12 +16,7 @@ const queryToKey = ({ search, filters }: { search: string; filters: Filters | nu
   const authors = getUniqueTrimmed(filters?.authors) || null;
   const publishers = filters?.publishers?.trim() || null;
   const years =
-    [
-      filters?.publishedAfter ? `>=${filters.publishedAfter}` : "",
-      filters?.publishedBefore ? `<=${filters.publishedBefore}` : "",
-    ]
-      .filter(Boolean)
-      .join("&") || null;
+    [filters?.publishedAfter, filters?.publishedBefore].filter(Boolean).join("-") || null;
 
   const searchQuery = search || publishers || topics?.[0] || authors?.[0] || years;
 
