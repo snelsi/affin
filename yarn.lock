@@ -919,10 +919,10 @@
     prop-types "^15.7.2"
     tslib "^2.1.0"
 
-"@react-three/fiber@^6.2.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.2.1.tgz#f0380f48d2bccc881d03d74ab54280dac17c3078"
-  integrity sha512-1QkEbA6cMM7TTqWISprqneyDML0rfYfIeUXFaOQK8vyF7vcj+c0PQRFMtsmDuadgWqLduO0Qtde3rLaPFN1Giw==
+"@react-three/fiber@^6.2.2":
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-6.2.2.tgz#bced876201cb136e91d5b0891f31e5c740e1537c"
+  integrity sha512-FtUb/oNhdvYuQqxqhvqgZyxDFwHgOFTbCPsBnERYxNv1uKV6r0+d6khbTnnZb6NEm93OXOliIyqE3ETpWAegyA==
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"
@@ -972,10 +972,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.41.tgz"
   integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
 
-"@types/node@^15.6.0":
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.0.tgz#f0ddca5a61e52627c9dcb771a6039d44694597bc"
-  integrity sha512-gCYSfQpy+LYhOFTKAeE8BkyGqaxmlFxe+n4DKM6DR0wzw/HISUE/hAmkC/KT8Sw5PCJblqg062b3z9gucv3k0A==
+"@types/node@^15.6.1":
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
+  integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1002,10 +1002,10 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@types/react@^17.0.6":
-  version "17.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.6.tgz#0ec564566302c562bf497d73219797a5e0297013"
-  integrity sha512-u/TtPoF/hrvb63LdukET6ncaplYsvCvmkceasx8oG84/ZCsoLxz9Z/raPBP4lTAiWW1Jb889Y9svHmv8R26dWw==
+"@types/react@^17.0.7":
+  version "17.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.7.tgz#5f2ca73d8baee8c286e96c95df557799ac0d1996"
+  integrity sha512-lBc3fY20hRFQ/pXQT2XdtmpJeXZnRH8N+WPnEzEfPTzuKmaJTA7k/xGWHBaPvKceKpbf0ZnMlLWY/0sFZ5rfkw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3496,10 +3496,10 @@ react-query@^3.16.0:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
-react-range@^1.8.7:
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.7.tgz#a890bc614517b5579179f6a2b44e642786f8d96e"
-  integrity sha512-M8vaKB2vCU04BWq/kae/e5xu5WWm/lfFHXWkSiFWWm00+fqNvhYAeNYmiXR82WgwQAwRmew7Wcy7HC9pZj5QcA==
+react-range@^1.8.8:
+  version "1.8.8"
+  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.8.tgz#2fe35596457f037357f5d53004ca8cfbfeaad427"
+  integrity sha512-6pWBUYfIPB6UjycSUqQBhKd7Og4Jnqd42ryllWwE/xumTQ+XY4FzMqssn7HmDxNqsuaYICUu6Q7Bp69/2+iDGg==
 
 react-reconciler@^0.26.2:
   version "0.26.2"
