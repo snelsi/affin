@@ -3,9 +3,7 @@ import Link from "next/link";
 import { Heading, useColorMode } from "@chakra-ui/react";
 import IArticle from "interfaces/IArticle";
 import { Card, Info, Divider, Description, StyledList } from "./style";
-import stripHtml from "utils/stripHtml";
-
-const trim = (text: string): string => (text ? text.trim().replace(/(^['"]+)|(['"]+$)/gm, "") : "");
+import { trim, stripHtml } from "utils/utils";
 
 const useParams = (article: IArticle): IArticle =>
   React.useMemo(
