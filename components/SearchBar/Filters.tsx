@@ -82,7 +82,7 @@ const Actions = styled.div`
   @media (max-width: 420px) {
     flex-direction: column;
     & > * {
-      width: 100%;
+      width: 100% !important;
       margin-right: 0 !important;
       margin-left: 0 !important;
       &:not(:last-child) {
