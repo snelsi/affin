@@ -15,6 +15,10 @@ const StyledLabel = styled.label`
     font-size: 16px;
     line-height: 1;
   }
+  & .react-select__menu {
+    background-color: var(--color-base-white);
+    color: var(--color-base-black);
+  }
 `;
 const LabelTitle = styled.div`
   color: var(--color-gray-600);
