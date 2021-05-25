@@ -1,8 +1,25 @@
 import * as React from "react";
+import Link from "next/link";
 import { Heading, useColorMode } from "@chakra-ui/react";
 import IArticle from "interfaces/IArticle";
 import { Card, Info, Divider, Description, StyledList } from "./style";
 import stripHtml from "utils/stripHtml";
+
+const trim = (text: string): string => (text ? text.trim().replace(/(^['"]+)|(['"]+$)/gm, "") : "");
+
+const useParams = (article: IArticle): IArticle =>
+  React.useMemo(
+    () =>
+      article
+        ? {
+            ...article,
+            authors: article.authors?.map(trim),
+            publisher: trim(article.publisher),
+            topics: article.topics?.map(trim),
+          }
+        : article,
+    [article],
+  );
 
 interface ArticleCardProps {
   article: IArticle;
@@ -13,8 +30,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, ...props }) => {
   const title = React.useMemo(() => stripHtml(article?.title), [article?.title]);
   const description = React.useMemo(() => stripHtml(article?.description), [article?.description]);
 
+  const { authors, year, publisher, topics, downloadUrl } = useParams(article) || {};
   if (!article) return null;
-  const { authors, year, publisher, topics, downloadUrl } = article;
 
   return (
     <Card as="article" data-theme={colorMode} {...props}>
@@ -23,18 +40,22 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, ...props }) => {
           {title}
         </a>
       </Heading>
-      <Info>
+      <Info className="info">
         {authors?.length > 0 && <span>{authors.join(", ")}</span>}
         {year && (
           <>
             <Divider />
-            <span>{year}</span>
+            <Link href={`/search?publishedAfter=${year}&publishedBefore=${year}`} passHref>
+              <a>{year}</a>
+            </Link>
           </>
         )}
         {publisher && (
           <>
             <Divider />
-            <span>{publisher}</span>
+            <Link href={`/search?publishers=${encodeURIComponent(publisher)}`} passHref>
+              <a>{publisher}</a>
+            </Link>
           </>
         )}
       </Info>

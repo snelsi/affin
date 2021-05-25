@@ -29,7 +29,7 @@ const ArticleCardsList: React.FC<ArticleCardsListProps> = ({
   return (
     <Stack spacing="clamp(16px, 5vw, 32px)" as="ul" {...props}>
       {cards.map((article) => (
-        <li key={article.id}>
+        <li key={article.id || `${article.title}-${article.publisher}`}>
           <Fade in>
             <ArticleCard article={article} />
           </Fade>

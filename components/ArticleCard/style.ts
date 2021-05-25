@@ -25,6 +25,14 @@ export const Card = styled(Box)`
       box-shadow: 0px 8px 32px rgba(60, 60, 60, 0.15);
     }
 
+    & .info {
+      & a {
+        &:hover,
+        &:focus {
+          color: var(--color-gray-400);
+        }
+      }
+    }
     & .chakra-tag {
       background: var(--color-gray-700);
       border: 1px solid var(--color-gray-700);
@@ -53,8 +61,16 @@ export const Info = styled.div`
   font-size: 14px;
   line-height: 21px;
   margin: 20px 0 0;
-  & span {
+  & span,
+  & a {
     display: inline;
+  }
+  & a {
+    transition: color var(--transition-ease);
+    &:hover,
+    &:focus {
+      color: var(--color-gray-600);
+    }
   }
   & svg {
     display: inline-block;
