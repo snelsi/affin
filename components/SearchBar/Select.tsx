@@ -3,10 +3,6 @@ import styled from "@emotion/styled";
 import { useTranslation } from "next-i18next";
 import AsyncCreatableSelect from "react-select/async-creatable";
 
-/* background-color: var(--color-input-bg); */
-/* color: var(--color-input-color); */
-/* color: var(--color-label); */
-
 const StyledLabel = styled.label`
   display: block;
   & .react-select__control {
@@ -29,18 +25,6 @@ const LabelTitle = styled.div`
   margin-bottom: 12px;
 `;
 
-const colourOptions = [];
-
-const filterColors = (inputValue: string) =>
-  colourOptions.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
-
-const promiseOptions = (inputValue: string) =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(filterColors(inputValue));
-    }, 1000);
-  });
-
 interface Value {
   label: string;
   value: string;
@@ -50,6 +34,7 @@ interface SelectProps {
   isMulti?: boolean;
   value?: string | string[];
   onChange?: (value: string | string[]) => void;
+  promiseOptions?: (inputValue: string) => Promise<{ value: string; label: string }[]>;
   instanceId?: string;
   placeholder?: string;
 }
@@ -60,6 +45,7 @@ const Select: React.FC<SelectProps> = ({
   onChange,
   instanceId,
   placeholder,
+  promiseOptions,
 }) => {
   const { t } = useTranslation("common");
 

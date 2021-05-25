@@ -3,20 +3,11 @@ import styled from "@emotion/styled";
 import { useTranslation } from "next-i18next";
 import { Box, Button, useColorMode } from "@chakra-ui/react";
 import useSearch from "utils/useSearch";
+import getAuthors from "utils/getAuthors";
+import getPublishers from "utils/getPublishers";
+import getTopics from "utils/getTopics";
 import Select from "./Select";
 import Year from "./Year";
-
-/* --color-label: var(--color-gray-600);
-  --color-bg: var(--color-violet-50);
-  --color-input-bg: var(--color-base-white);
-  --color-input-color: var(--color-base-black); 
-
-   background-color: var(--color-bg); */
-
-/* --color-label: var(--color-gray-100);
-    --color-bg: var(--color-gray-700);
-    --color-input-bg: var(--color-gray-800);
-    --color-input-color: var(--color-gray-100); */
 
 const Card = styled(Box)`
   background-color: var(--color-violet-50);
@@ -131,12 +122,14 @@ const Filters: React.FC<FiltersProps> = () => {
         value={filters.authors || []}
         onChange={(value) => handleChange("authors", value)}
         instanceId="authors"
+        promiseOptions={getAuthors}
       />
       <Select
         label={t("publisher")}
         value={filters.publishers}
         onChange={(value) => handleChange("publishers", value)}
         instanceId="publisher"
+        promiseOptions={getPublishers}
       />
       <Select
         label={t("topics")}
@@ -144,6 +137,7 @@ const Filters: React.FC<FiltersProps> = () => {
         value={filters.topics || []}
         onChange={(value) => handleChange("topics", value)}
         instanceId="topics"
+        promiseOptions={getTopics}
       />
       <Year
         value={[
