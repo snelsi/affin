@@ -130,6 +130,7 @@ const Filters: React.FC<FiltersProps> = () => {
         onChange={(value) => handleChange("publishers", value)}
         instanceId="publisher"
         promiseOptions={getPublishers}
+        isClearable
       />
       <Select
         label={t("topics")}

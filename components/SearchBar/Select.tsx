@@ -41,6 +41,7 @@ interface SelectProps {
   promiseOptions?: (inputValue: string) => Promise<{ value: string; label: string }[]>;
   instanceId?: string;
   placeholder?: string;
+  isClearable?: boolean;
 }
 const Select: React.FC<SelectProps> = ({
   label,
@@ -50,6 +51,7 @@ const Select: React.FC<SelectProps> = ({
   instanceId,
   placeholder,
   promiseOptions,
+  isClearable,
 }) => {
   const { t } = useTranslation("common");
 
@@ -82,6 +84,7 @@ const Select: React.FC<SelectProps> = ({
         }}
         instanceId={instanceId}
         placeholder={placeholder || t("select...")}
+        isClearable={isClearable}
       />
     </StyledLabel>
   );
