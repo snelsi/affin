@@ -84,7 +84,7 @@ const Year: React.FC<YearProps> = ({
       <Wrapper>
         <Range
           ref={rangeRef}
-          values={value.map((year) => clamp(min, year, max))}
+          values={value.map((year) => clamp(min, year, max)).sort((a, b) => a - b)}
           step={step}
           min={min}
           max={max}
