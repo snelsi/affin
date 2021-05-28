@@ -21,5 +21,17 @@
   "home": "Домой",
   "something went wrong": "Что-то пошло не так",
   "you didn't specify query": "Вы не указали поисковый запрос",
-  "enter search query": "Введите запрос в поле ввода и нажмите 'Поиск'"
+  "enter search query": "Введите запрос в поле ввода и нажмите 'Поиск'",
+  "Physics": "Физика",
+  "Electrical Engineering": "Электротехника",
+  "Information technology": "Информационные технологии",
+  "Mathematics": "Математика",
+  "Computer and Information Sciences": "Компьютерные и информационные науки",
+  "Earth sciences and related environmental sciences": "Науки о Земле и смежные экологические науки",
+  "History and Archaeology": "История и археология",
+  "Nanotechnology": "Нанотехнологии",
+  "Energy and Environmental Management": "Энергетика и рациональное природопользование",
+  "Biological Sciences": "Биологические науки",
+  "Economics and Business": "Экономика и бизнеc",
+  "fetch more": "Загрузить ещё"
 }

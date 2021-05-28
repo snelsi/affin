@@ -21,5 +21,17 @@
   "home": "Home",
   "something went wrong": "Something went wrong",
   "you didn't specify query": "You didn't specify a search query",
-  "enter search query": "Enter the query in the input field and press 'Search'"
+  "enter search query": "Enter the query in the input field and press 'Search'",
+  "Physics": "Physics",
+  "Electrical Engineering": "Electrical Engineering",
+  "Information technology": "Information technology",
+  "Mathematics": "Mathematics",
+  "Computer and Information Sciences": "Computer and Information Sciences",
+  "Earth sciences and related environmental sciences": "Earth sciences and related environmental sciences",
+  "History and Archaeology": "History and Archaeology",
+  "Nanotechnology": "Nanotechnology",
+  "Energy and Environmental Management": "Energy and Environmental Management",
+  "Biological Sciences": "Biological Sciences",
+  "Economics and Business": "Economics and Business",
+  "fetch more": "Fetch More"
 }

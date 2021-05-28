@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { useBreakpointValue } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 import TopicsList from "../TopicsList";
 
 const StyledList = styled(TopicsList)`
@@ -25,24 +26,28 @@ const StyledList = styled(TopicsList)`
   }
 `;
 
-const topics = [
-  "Физика",
-  "Электротехника",
-  "электронная техника",
-  "информационные технологии",
-  "Математика",
-  "Компьютерные и информационные науки",
-  "Науки о Земле и смежные экологические науки",
-  "История и археология",
-  "Нанотехнологии",
-  "Энергетика и рациональное природопользование",
-  "Биологические науки",
-  "Экономика и бизнеc",
-];
-
 interface TopicsProps {}
 const Topics: React.FC<TopicsProps> = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const { t } = useTranslation("common");
+
+  const topics = React.useMemo(
+    () => [
+      t("Physics"),
+      t("Electrical Engineering"),
+      t("Information technology"),
+      t("Mathematics"),
+      t("Computer and Information Sciences"),
+      t("Earth sciences and related environmental sciences"),
+      t("History and Archaeology"),
+      t("Nanotechnology"),
+      t("Energy and Environmental Management"),
+      t("Biological Sciences"),
+      t("Economics and Business"),
+    ],
+    [t],
+  );
+
   return <StyledList topics={topics} maxTags={10} trimExtra={!isMobile} data-no-wrap={isMobile} />;
 };
 

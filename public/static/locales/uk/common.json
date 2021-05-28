@@ -21,5 +21,17 @@
   "home": "Назад",
   "something went wrong": "Щось пішло не по плану",
   "you didn't specify query": "Ви не вказали пошуковий запит",
-  "enter search query": "Введiть запит у поле вводу та нажмiть 'Пошук'"
+  "enter search query": "Введiть запит у поле вводу та нажмiть 'Пошук'",
+  "Physics": "Фізика",
+  "Electrical Engineering": "Електротехніка",
+  "Information technology": "Інформатика",
+  "Mathematics": "Математика",
+  "Computer and Information Sciences": "Інформаційні технології",
+  "Earth sciences and related environmental sciences": "Науки про Землю та суміжні екологічні науки",
+  "History and Archaeology": "Історія і археологія",
+  "Nanotechnology": "Нанотехнології",
+  "Energy and Environmental Management": "Енергетика і раціональне природокористування",
+  "Biological Sciences": "Біологічні науки",
+  "Economics and Business": "Економіка і бізнеc",
+  "fetch more": "Завантажити ще"
 }
