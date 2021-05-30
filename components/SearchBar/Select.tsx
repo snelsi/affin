@@ -10,7 +10,7 @@ const StyledLabel = styled.label`
     border: none;
     border-radius: 5px;
     color: var(--color-base-black);
-    height: 42px;
+    min-height: 42px;
     font-weight: normal;
     font-size: 16px;
     line-height: 1;

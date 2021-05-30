@@ -8,6 +8,7 @@ const Card = styled(Box)`
   border: none;
   border-radius: 10px;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: clamp(16px, 5vw, 32px);
   color: var(--color-base-black);
   transition: var(--transition-ease);
   padding: 24px;
@@ -43,6 +44,10 @@ const Card = styled(Box)`
     }
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &[data-theme="dark"] {
     background-color: var(--color-true-gray-800);
     color: var(--color-gray-50);
@@ -61,7 +66,7 @@ const NoSearch: React.FC<NoSearchProps> = ({ ...props }) => {
   const { t } = useTranslation("common");
 
   return (
-    <Card data-theme={colorMode} {...props} mb="clamp(16px, 5vw, 32px)">
+    <Card data-theme={colorMode} {...props}>
       <Heading size="lg" mb="16px">
         {t("you didn't specify query")}
       </Heading>
