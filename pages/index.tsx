@@ -8,12 +8,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout, Hero, ErrorCard, SearchBar } from "components";
 import ArticleCardsList from "components/ArticleCardsList";
 import Topics from "components/Landing/Topics";
-import { useHot } from "utils/useArticles";
+import useHot from "utils/useHot";
 
 const IndexPage: NextPage = () => {
   const { t } = useTranslation("common");
 
-  const { isLoading, error, articles } = useHot();
+  const { isLoading, error, articles, total, fetchNextPage, isFetchingNextPage } = useHot();
 
   return (
     <Layout>
@@ -30,7 +30,13 @@ const IndexPage: NextPage = () => {
       </Hero>
       <div data-fix-width>
         {error && <ErrorCard error={error} />}
-        <ArticleCardsList loading={isLoading} articles={articles} />
+        <ArticleCardsList
+          loading={isLoading}
+          articles={articles}
+          total={total}
+          fetchMore={fetchNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+        />
       </div>
     </Layout>
   );

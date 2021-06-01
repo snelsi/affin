@@ -37,7 +37,8 @@ const SearchPage: NextPage<SearchPageProps> = () => {
     setFilters(filters);
   }, [query]);
 
-  const { isLoading, error, articles, total, enabled } = useArticles();
+  const { isLoading, error, articles, total, enabled, fetchNextPage, isFetchingNextPage } =
+    useArticles();
 
   const title = Array.isArray(query.q) ? query.q[0] : query.q;
 
@@ -61,7 +62,17 @@ const SearchPage: NextPage<SearchPageProps> = () => {
       </Hero>
       <div data-fix-width>
         {error && <ErrorCard error={error} />}
-        {enabled ? <ArticleCardsList loading={isLoading} articles={articles} /> : <NoSearch />}
+        {enabled ? (
+          <ArticleCardsList
+            loading={isLoading}
+            articles={articles}
+            total={total}
+            fetchMore={fetchNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        ) : (
+          <NoSearch />
+        )}
       </div>
     </Layout>
   );

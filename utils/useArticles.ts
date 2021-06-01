@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import axios, { AxiosResponse } from "axios";
+import { useInfiniteQuery } from "react-query";
 import useSearchParams from "utils/useSearchParams";
-import IArticle from "interfaces/IArticle";
 import { Filters } from "interfaces/filters";
+import IArticle from "interfaces/IArticle";
 
 interface IFilters {
   topics?: string;
@@ -10,6 +10,18 @@ interface IFilters {
   publishers?: string;
   years?: string;
 }
+
+interface APIResponseOK {
+  data: IArticle[];
+  status: "OK";
+  total: number;
+}
+interface APIResponseError {
+  data: null;
+  status: "ERROR";
+  total: null;
+}
+export type APIResponse = APIResponseOK | APIResponseError;
 
 const queryToKey = ({ search, filters }: { search: string; filters: Filters | null }) => {
   const topics = getUniqueTrimmed(filters?.topics) || null;
@@ -39,7 +51,7 @@ export const getArticles = async (
 ) => {
   const { search, filters } = queryToKey(query);
 
-  return axios.post("https://kpi-affin-2021.herokuapp.com/pullarticles/", {
+  return axios.post<APIResponse>("https://kpi-affin-2021.herokuapp.com/pullarticles/", {
     searchQuery: search,
     offset,
     limit,
@@ -50,7 +62,15 @@ export const getArticles = async (
 const getUniqueTrimmed = (values: string[] | null) =>
   values ? Array.from(new Set(values.map((v) => v?.trim()))) : values;
 
-const getUniqueArticles = (articles: IArticle[]): IArticle[] => {
+const getScore = (article: IArticle) => {
+  let score = 0;
+  if (article.description?.trim()) score += 2;
+  if (article.topics?.length > 0) score += 1;
+  return score;
+};
+const sortCards = (articles: IArticle[]) => articles?.sort((a, b) => getScore(b) - getScore(a));
+
+export const getUniqueArticles = (articles: IArticle[]): IArticle[] => {
   if (!articles) return articles;
 
   const urls = [];
@@ -62,37 +82,13 @@ const getUniqueArticles = (articles: IArticle[]): IArticle[] => {
     }
   }
 
-  return res.map((article) => ({
-    ...article,
-    authors: getUniqueTrimmed(article.authors),
-    topics: getUniqueTrimmed(article.topics),
-  }));
-};
-
-const getScore = (article: IArticle) => {
-  let score = 0;
-  if (article.description?.trim()) score += 2;
-  if (article.topics?.length > 0) score += 1;
-  return score;
-};
-const sortCards = (articles: IArticle[]) => articles?.sort((a, b) => getScore(b) - getScore(a));
-
-export const useHot = () => {
-  const { data, error, ...props } = useQuery(["hot articles"], () =>
-    getArticles({ search: "hydroacoustics", filters: null }, 5),
+  return sortCards(
+    res.map((article) => ({
+      ...article,
+      authors: getUniqueTrimmed(article.authors),
+      topics: getUniqueTrimmed(article.topics),
+    })),
   );
-
-  const articles = sortCards(getUniqueArticles(data?.data?.data));
-  const total: number = data?.data?.total || 0;
-
-  const typedError = error as {
-    response: {
-      status: string;
-      statusText: string;
-    };
-  };
-
-  return { articles, total, error: typedError, ...props };
 };
 
 const useArticles = () => {
@@ -100,14 +96,18 @@ const useArticles = () => {
 
   const enabled = Boolean(search?.trim() || active);
 
-  const { data, error, ...props } = useQuery(
+  const { data, error, ...props } = useInfiniteQuery<AxiosResponse<APIResponse>>(
     ["articles", queryToKey({ search, filters })],
-    () => getArticles({ search, filters }),
-    { enabled },
+    ({ pageParam = 0 }) => getArticles({ search, filters }, 20, pageParam),
+    {
+      getNextPageParam: (_lastPage, pages) => pages.length,
+      enabled,
+    },
   );
 
-  const articles = getUniqueArticles(data?.data?.data);
-  const total: number = data?.data?.total || 0;
+  const articles: IArticle[] =
+    data?.pages?.map((page) => getUniqueArticles(page?.data?.data)).flat() || null;
+  const total: number = data?.pages?.[0]?.data?.total || 0;
 
   const typedError = error as {
     response: {
