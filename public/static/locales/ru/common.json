@@ -34,5 +34,10 @@
   "Biological Sciences": "Биологические науки",
   "Economics and Business": "Экономика и бизнеc",
   "fetch more": "Загрузить ещё",
-  "hydroacoustics": "Гидроакустика"
+  "hydroacoustics": "Гидроакустика",
+  "no results containing your search": "Не найдено результатов, содержащих все ваши поисковые фильтры",
+  "make sure that all words are spelled correctly": "Убедитесь, что все слова написаны без ошибок.",
+  "try different keywords": "Попробуйте использовать другие ключевые слова.",
+  "try more general keywords": "Попробуйте использовать более популярные ключевые слова.",
+  "try fewer keywords": "Попробуйте уменьшить количество слов в запросе."
 }

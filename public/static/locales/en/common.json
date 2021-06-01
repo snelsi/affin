@@ -34,5 +34,10 @@
   "Biological Sciences": "Biological Sciences",
   "Economics and Business": "Economics and Business",
   "fetch more": "Fetch More",
-  "hydroacoustics": "Hydroacoustics"
+  "hydroacoustics": "Hydroacoustics",
+  "no results containing your search": "No results containing all your search terms were found",
+  "make sure that all words are spelled correctly": "Make sure that all words are spelled correctly.",
+  "try different keywords": "Try different keywords.",
+  "try more general keywords": "Try more general keywords.",
+  "try fewer keywords": "Try fewer keywords."
 }

@@ -82,13 +82,13 @@ const NotFound: React.FC<NotFoundProps> = ({ ...props }) => {
       <Heading size="lg" mb="16px">
         {t("nothing found")}
       </Heading>
-      <Text mb="16px">No results containing all your search terms were found</Text>
+      <Text mb="16px">{t("no results containing your search")}</Text>
 
       <UnorderedList mb="24px">
-        <ListItem>Make sure that all words are spelled correctly.</ListItem>
-        <ListItem>Try different keywords.</ListItem>
-        <ListItem>Try more general keywords.</ListItem>
-        <ListItem>Try fewer keywords.</ListItem>
+        <ListItem>{t("make sure that all words are spelled correctly")}</ListItem>
+        <ListItem>{t("try different keywords")}</ListItem>
+        <ListItem>{t("try more general keywords")}</ListItem>
+        <ListItem>{t("try fewer keywords")}</ListItem>
       </UnorderedList>
 
       <div className="actions">
