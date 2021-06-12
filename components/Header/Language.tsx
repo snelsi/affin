@@ -5,9 +5,9 @@ import { Menu, IconButton, MenuButton, MenuList, MenuItem } from "@chakra-ui/rea
 import { FiGlobe } from "react-icons/fi";
 
 const prettyLocale = (locale: string) => {
-  if (locale === "en") return "eng";
-  if (locale === "ru") return "rus";
-  if (locale === "uk") return "ukr";
+  if (locale === "en") return "🇬🇧 eng";
+  if (locale === "ru") return "🇷🇺 rus";
+  if (locale === "uk") return "🇺🇦 ukr";
   return locale;
 };
 
@@ -32,7 +32,7 @@ const Language: React.FC<LanguageProps> = () => {
         aria-label={t("change locale")}
         variant="ghost"
       />
-      <MenuList minW="80px" zIndex={100}>
+      <MenuList minW="92px" zIndex={100}>
         {locales.map((locale) => (
           <MenuItem key={locale} onClick={() => handleLocale(locale)} textTransform="capitalize">
             {prettyLocale(locale)}
