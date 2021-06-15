@@ -24,10 +24,12 @@ const StyledTag = styled(Tag)`
   transition: all var(--transition-ease);
 
   & > span {
+    display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 8px 12px;
+    text-align: center;
     &::first-letter {
       text-transform: uppercase;
     }
