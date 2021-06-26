@@ -13,7 +13,13 @@ import "styles/global.css";
 const MyApp = ({ Component, pageProps }) => {
   const queryClientRef = React.useRef<QueryClient>(null);
   if (!queryClientRef.current) {
-    queryClientRef.current = new QueryClient();
+    queryClientRef.current = new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+        },
+      },
+    });
   }
 
   return (
