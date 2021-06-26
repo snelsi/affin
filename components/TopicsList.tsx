@@ -65,8 +65,6 @@ const Topics: React.FC<TopicsProps> = ({
 }) => {
   const [showMore, setShowMore] = React.useState(false);
 
-  if (!topics || topics.length === 0) return null;
-
   const [topicsToShow, extraTopics] = React.useMemo(() => {
     const data = [...new Set(topics?.filter(Boolean) || [])];
     if (!trimExtra) return [data, []];
@@ -76,6 +74,8 @@ const Topics: React.FC<TopicsProps> = ({
 
     return [topicsToShow, extraTopics];
   }, [topics, maxTags, trimExtra]);
+
+  if (!topics || topics.length === 0) return null;
 
   const showMoreTopics = () => setShowMore(true);
   const hideExtraTopics = () => setShowMore(false);

@@ -37,9 +37,7 @@ const Header: React.FC<HeaderProps> = ({ minimal = false }) => {
     <Wrapper data-minimal={minimal}>
       <HStack width="100%" spacing={6}>
         <Heading size="lg" fontSize="24px">
-          <Link href="/" passHref>
-            <a href="/">{t("affin")}</a>
-          </Link>
+          <Link href="/">{t("affin")}</Link>
         </Heading>
 
         <ToggleTheme />

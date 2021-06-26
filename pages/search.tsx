@@ -35,7 +35,7 @@ const SearchPage: NextPage<SearchPageProps> = () => {
     setSearch(search);
     setActive(active);
     setFilters(filters);
-  }, [query]);
+  }, [query, setActive, setFilters, setSearch]);
 
   const { isLoading, error, articles, total, enabled, fetchNextPage, isFetchingNextPage } =
     useArticles();

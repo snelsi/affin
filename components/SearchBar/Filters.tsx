@@ -107,12 +107,12 @@ const Filters: React.FC<FiltersProps> = () => {
     if (!filters.publishedAfter) {
       setFilters((f) => ({ ...f, publishedAfter: new Date().getFullYear() - 40 }));
     }
-  }, [filters.publishedAfter]);
+  }, [filters.publishedAfter, setFilters]);
   React.useEffect(() => {
     if (!filters.publishedBefore) {
       setFilters((f) => ({ ...f, publishedBefore: new Date().getFullYear() }));
     }
-  }, [filters.publishedBefore]);
+  }, [filters.publishedBefore, setFilters]);
 
   return (
     <Card data-theme={colorMode}>

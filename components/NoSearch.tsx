@@ -1,7 +1,10 @@
 import * as React from "react";
 import styled from "@emotion/styled";
+import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { Box, Heading, Text, useColorMode } from "@chakra-ui/react";
+
+import NoQuery from "public/no-query.svg";
 
 const Card = styled(Box)`
   background-color: var(--color-blue-gray-200);
@@ -72,7 +75,7 @@ const NoSearch: React.FC<NoSearchProps> = ({ ...props }) => {
       </Heading>
       <Text mb="16px">{t("enter search query")}</Text>
 
-      <img src="/no-query.svg" alt="" />
+      <Image src={NoQuery} alt="" />
     </Card>
   );
 };
